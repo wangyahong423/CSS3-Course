@@ -11,16 +11,16 @@
     <fieldset style="width:400px">
         <legend style="color: red">学生信息</legend>
         <form id="testform" method="get" action="">
-                姓&nbsp;&nbsp;名：<input type="text" name="name1" autofocus="autofocus" placeholder="请输入姓名" required/> 
+                姓&nbsp;&nbsp;名：<input type="text" name="username0" autofocus="autofocus" placeholder="请输入姓名" required/> 
                 <a style="color: red">*</a>
                 <br>
-                学&nbsp;&nbsp;号：<input type="text" name="name1" autofocus="autofocus" placeholder="请输入学号" required/> 
+                学&nbsp;&nbsp;号：<input type="text" name="number" autofocus="autofocus" placeholder="请输入学号" required/> 
                 <a style="color: red">*</a>
                 <br>
-                手&nbsp;&nbsp;机：<input type="tel" name="name1" autofocus="autofocus" placeholder="请输入手机号" required/> 
+                手&nbsp;&nbsp;机：<input type="tel" name="tel" autofocus="autofocus" placeholder="请输入手机号" required/> 
                 <a style="color: red">*</a>
                 <br>
-                邮&nbsp;&nbsp;箱：<input type="email" name="name1" autofocus="autofocus" placeholder="请输入正确邮箱" required/> 
+                邮&nbsp;&nbsp;箱：<input type="email" name="email0" autofocus="autofocus" placeholder="请输入正确邮箱" required/> 
                 <a style="color: red">*</a>
                 <br>
             </form>
@@ -29,9 +29,16 @@
     <fieldset style="width:400px">
         <legend style="color: red">录取情况</legend>
         <form id="testform" method="get" action="">
-                录取学校：<input type="text" name="name1" autofocus="autofocus" required/> 
+                录取学校：<input type="search" autofocus="autofocus" list="school" required/> 
+                <datalist id="school">
+                    <option>大连理工大学</option>
+                    <option>河北师范大学</option>
+                    <option>河北工业大学</option>
+                    <option>河北科技大学</option>
+                    <option>河北医科大学</option>
+                </datalist>
                 <br>
-                入学成绩：<input type="number" name="name1" autofocus="autofocus" required/> 
+                入学成绩：<input type="number" autofocus="autofocus" required/> 
                 <br>
                 入学时间：<input type="date" style="margin-top:2px">
                 <br>
