@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="practise2.css">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="get">
+        <input id="inp" type="text" name="username0" autofocus="autofocus" placeholder="请输入想查找的商品" required/> 
+        <input id="but"  value="搜索">
+        <p id="search">最近搜索</p>
+        <div class="history">
+            <!-- 历史搜索框 -->
+            <div id="hList"></div>
+            <div id="del">X</div>
+        </div>
+    </form>
+</body>
+<script>
+    var but = document.getElementById("but");
+    var del = document.getElementById("del");
+    but.onmouseover=function(){
+            but.style.cursor='pointer';
+    }
+    del.onmouseover=function(){
+            del.style.cursor='pointer';
+    }
+    but.onclick = function(){
+        var val = document.getElementById("inp").value;
+        var time = new Date().getTime();
+        localStorage.setItem(time,val);
+        var hList = document.getElementById("hList");
+        var sp = '<span id="sp">';
+        for(var i = 0;i<localStorage.length;i++){
+            var key = localStorage.key(i);
+            var value = localStorage.getItem(key);
+            var date = new Date();
+            date.setTime(key);
+        }
+        sp+=value;
+        sp+='</span>';
+        hList.innerHTML+=sp;
+        value+="";
+        document.getElementById("inp").value = "";
+    }
+    del.onclick = function(){
+        var hList = document.getElementById("hList");
+        localStorage.clear();
+        alert("全部数据被清除？");
+        hList.innerText="";
+        document.getElementById("inp").value = "";
+    }
+</script>
+</html>
