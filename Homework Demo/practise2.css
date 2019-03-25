@@ -25,11 +25,12 @@
 #del{
     background-color: #949494;
     color:#fff;
-    width: 16px;
-    height: 16px;
+    width: 20px;
+    height: 20px;
     text-align: center;
-    line-height: 16px;
+    line-height: 20px;
     float: right;
+    margin-top: 10px;
 }
 #sp{
     background-color: #e0e0e0;
