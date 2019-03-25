@@ -1,12 +1,8 @@
-*{
-    border: none;
-}
 #inp{
     width: 195px;
     height: 40px;
     border: 2px solid #eaa33c;
-    margin-top: 8px;
-    margin-left: 8px;
+    outline: none;
 }
 #but{
     width: 140px;
@@ -15,13 +11,10 @@
     background-color: #ebebeb;
     text-align: center;
     color: #949494;
-}
-p{
-    margin-top: -1px;
+    outline: none;
 }
 #search{
     margin-top: 0px;
-    margin-left: 8px;
 }
 .history{
     width: 415px;
@@ -41,7 +34,7 @@ p{
 #sp{
     background-color: #e0e0e0;
     float: left;
-    margin-left: 2px;
-    margin-top: 2px;
-    border:2px solid #ccc;
+    margin-left: 5px;
+    margin-top: 5px;
+    border:1px solid #ccc;
 }
