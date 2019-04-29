@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+            *{
+                padding:0;
+                margin:0;
+                border:none;
+            }
+            #price{
+                width: 200px;
+                height: 100px;
+                line-height: 150px;
+                font-size: 30px;
+                text-align: center;
+                font-weight: bold;
+                position: absolute;
+                color: red;
+                left: 150px;
+            }
+            #cardCanvas{
+                border:1px solid #ccc;
+                position: absolute;
+                left: 100px;
+                z-index: 1;
+            }
+          </style>
+</head>
+<body>
+    <span id="price">二等奖</span>
+    <canvas id="cardCanvas"></canvas> 
+</body>
+<script>
+    var cardCanvas = document.getElementById("cardCanvas");
+    var context = cardCanvas.getContext("2d");
+    var price = document.getElementById("price");
+    context.fillStyle = '#aaa';
+    context.fillRect(0,0,300,150);
+    context.fill();
+    context.globalCompositeOperation = 'destination-out';
+
+    //用数组表示奖项的分类，并且用Math.random()方法构造奖项的概率。
+    //一等奖：1
+    //二等奖：2 3
+    //三等奖：4 5 6
+    //谢谢参与：7 8 9 10
+    var priceList = new Array('一等奖','二等奖','三等奖','谢谢参与');
+    var n = 3;
+    if(Math.floor(Math.random()*10+1) == 1){
+        //一等奖
+        n = 0;
+        price.innerHTML = priceList[n];
+    }
+    else if(Math.floor(Math.random()*10+1) > 1 && Math.floor(Math.random()*10+1) < 3){
+        //二等奖
+        n = 1;
+        price.innerHTML = priceList[n];
+    }
+    else if(Math.floor(Math.random()*10+1) > 2 && Math.floor(Math.random()*10+1) < 6){
+        //三等奖
+        n = 2;
+        price.innerHTML = priceList[n];
+    }
+    else{
+        //谢谢参与
+        n = 3;
+        price.innerHTML = priceList[n];
+    }
+    
+    var mouse = 0;//设置标志，对于鼠标不同状态下进行标志
+    //鼠标按下
+    cardCanvas.onmousedown = function(w){
+        mouse = 1;
+        context.beginPath();
+        context.arc(w.clientX-70,w.clientY,30,0,2*Math.PI);
+        context.fill();
+        context.closePath();
+    }
+    var sum = 0;//鼠标刮奖的区域大小
+    //鼠标抬起
+    document.onmouseup = function(){
+        mouse = 0;
+        sum = 0;
+        var a = context.getImageData(0,0,300,150);
+        for(var i=0;i<a.data.length;i+=4){
+            if(a.data[i]==0){
+                sum++;
+            }
+        }
+        if(sum>a.data.length/4*0.85){
+            //判读刮开区域大小是否大于等于85%，若大于，则直接将区域置为透明，即置为空
+            context.clearRect(0,0,300,150);
+        }
+    }
+    //鼠标移动
+    cardCanvas.onmousemove = function(w){
+        if(mouse == 1){
+            //绘制圆半径为30px的圆
+            context.beginPath();
+            context.arc(w.clientX-70,w.clientY,30,0,2*Math.PI);
+            context.fill();
+            context.closePath();
+        }
+    }
+</script> 
+</html>
