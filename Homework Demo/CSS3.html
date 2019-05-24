@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #box{
+            border: 5px solid grey;
+            width: 378px;
+            height: 440px;
+            z-index: 11111;
+        }
+        #imgBox{
+            height: 245px;
+            width: 385px;
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            position: relative;
+        }
+        #fif{
+            height: 245px;
+            width: 378px;
+            overflow: hidden;
+           
+        }
+        #img0{
+            width: 380px;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            filter: blur(1px);
+        }
+        #pWord1{
+            padding-top: 2px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            font-weight: bolder;
+        }
+        #pt{
+            color: white;
+            position: relative;
+            top: -39px;
+            width: 50px;
+            height: 22px;
+            background-color: rgb(255, 72, 0);
+            text-align: center;
+            font-size: 13px;
+            line-height: 20px;
+            z-index: 111;
+            transition: 0.5s;
+        }
+        #box:hover #pt{
+           top: -120px;
+           transition:  0.5s;
+        }
+        #wordBox{
+            height: 176px;
+            width: 378px;
+            bottom: 17px;
+            /* top: 20px; */
+            position: relative;
+            /* padding-top: 20px; */
+            background-color: white;
+            z-index: 1;
+            transition:  0.5s;
+        }
+        #box:hover #wordBox{
+            width: 378px;
+            bottom: 98px;
+            transition:  0.5s;
+
+        }
+        #hWord2{
+            position: relative;
+            left: 20px;
+            top: 20px;
+        }
+        #pWord2{
+            padding-left: 20px;
+            padding-top: 23px;
+            color: red;
+        }
+        #sp{
+            color: rgba(54, 56, 54, 0.315);
+            font-size: 12px;
+        }
+        #spDiv{
+            position: absolute;
+            top: 420px;
+            z-index: 111;
+        }
+        #pWord3{
+            position: absolute;
+            left: 20px;
+            width: 330px;
+            opacity: 0;
+            color: rgb(128, 124, 124);
+            transition-timing-function: ease;
+            transition: 0.5s;
+            line-height: 25px;
+        }
+        #five{
+            width: 50px;
+            height: 50px;
+            background-color: rgb(245, 143, 27);
+            border-radius: 50%;
+            position: absolute;
+            top: 20px;
+            left: 300px;
+            z-index: 55555;
+        }
+        #box:hover #img0{
+            transform:scale(1.5);
+            overflow: hidden;      
+            opacity: 0.7;
+        }
+        #shaw{
+            height: 245px;
+            width: 378px;
+            background-color: black;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            z-index: 1;
+            opacity: 0;
+            transition: 0.5s;
+        }
+        #box:hover #shaw{
+            opacity:0.3;
+            transition: 1s;
+        }
+        #box:hover #pWord3{
+            display: block;
+            transition: 0.5s;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">
+        <div id="imgBox">
+            <div id="fif">
+                <img id="img0" src="zhanqiao.jpg"> 
+                <div id="shaw"></div>
+                <div id="five">
+                    <p id="pWord1">15</p>
+                    <p id="pWord1">五月</p>
+                </div>
+            </div>
+           
+            <div><p id="pt">照片</p></div>
+        </div>
+        <div id="wordBox">
+            <h2 id="hWord2">青岛栈桥</h2>
+            <p id="pWord2">国家AAAA级旅游景区</p>
+            <p id="pWord3">青岛栈桥是青岛海滨风景区的景点之一，是国务院于1982年首批公布的国家级风景名胜区。青岛栈桥位于游人如织的青岛中山路南端，桥身从海岸探入如弯月般的青岛湾深处。桥身供游人参观并在此停靠旅游船，由此乘船可看海上青岛。</p>
+        </div>
+        <div id="spDiv">
+            <span id="sp">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;10分钟前&nbsp;&nbsp;&nbsp;</span>
+            <span id="sp">123评论</span>
+        </div>
+    </div>
+    
+</body>
+</html>
